@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Deleted</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="nav-center">
+      <a href="/">Home</a>
+      <a href="/users">Users</a>
+      <a href="/users/{{ user_id }}">Back to Movies</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="top-section">
+    <h1>🗑️ Movie Deleted</h1>
+    <p>The movie has been successfully removed from the collection.</p>
+  </div>
+
+  <div class="button-group">
+    <a href="/users/{{ user_id }}" class="btn">Back to Movie List</a>
+    <a href="/users" class="btn">All Users</a>
+  </div>
+</main>
+
+<div class="fullscreen-video-container">
+  <video autoplay muted loop playsinline>
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+</body>
+</html>

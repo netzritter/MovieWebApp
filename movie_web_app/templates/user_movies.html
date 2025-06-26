@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ user.name }}'s Favorite Movies</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="nav-center">
+      <a href="/">Home</a>
+      <a href="/users">Back to Users</a>
+      <a href="/users/{{ user_id }}/add_movie" class="btn">➕ Add Movie</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="top-section">
+    <h1>🎥 {{ user.name }}'s Favorite Movies</h1>
+    <p>Manage, update, or delete movies from this collection.</p>
+  </div>
+
+  {% if user.movies %}
+    <div class="book-container">
+      {% for movie in user.movies %}
+        <div class="movie-card">
+          <h3>{{ movie.name }}</h3>
+          <p><strong>Director:</strong> {{ movie.director }}</p>
+          <p><strong>Year:</strong> {{ movie.year }}</p>
+          <p><strong>Rating:</strong> {{ movie.rating }}/10</p>
+
+          <div class="movie-actions">
+            <a href="/users/{{ user_id }}/update_movie/{{ movie.id }}" class="btn">Edit</a>
+            <a href="/users/{{ user_id }}/delete_movie/{{ movie.id }}" class="delete-button">Delete</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="form-box" style="text-align: center;">
+      <p style="color: #ccc;">No movies found. Try adding one to get started!</p>
+    </div>
+  {% endif %}
+</main>
+
+<div class="fullscreen-video-container">
+  <video autoplay muted loop playsinline>
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+</body>
+</html>
