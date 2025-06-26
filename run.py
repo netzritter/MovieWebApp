@@ -9,5 +9,5 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()  # Create all tables if they don't exist
 
-    # Run the app in debug mode
-    app.run(debug=True)
+    # Run the app on 0.0.0.0 and port 5000 for Codio compatibility
+    app.run(host='0.0.0.0', port=5000, debug=True)
